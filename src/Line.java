@@ -8,6 +8,6 @@ public class Line {
     }
 
     public String toString(){
-        return "from " + begin + " to " + end;
+        return "Линия от " + begin + " до " + end;
     }
 }

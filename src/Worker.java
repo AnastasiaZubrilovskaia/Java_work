@@ -9,7 +9,7 @@ public class Worker {
             return name + " has no work";
         }
         else if (department.boss == this){
-            return name + " is boss of " + department.name;
+            return name + " is boss of department " + department.name;
         }
         return name + " works in " + department;
     }

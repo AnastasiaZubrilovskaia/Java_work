@@ -1,12 +1,17 @@
 public class PersonWithParents {
-//    public Person height;
-//    public Name name;
-//    public Person
-//    public PersonWithParents (Person height, Name name){
-//        this.height = height;
-//        this.name = name;
-//    }
-//    public String toString (){
-//        return "Человек с именем " + name + " и ростом " + height.height;
-//    }
+    PersonWithName son;
+    PersonWithName father;
+    public PersonWithParents (PersonWithName son, PersonWithName father){
+        this.son = son;
+        this.father = father;
+    }
+    public String toString(){
+        if (son.name.surname == null && father.name.surname != null){
+            son.name.surname = father.name.surname;
+        }
+        if (son.name.middleName == null && father.name.personalName != null){
+            son.name.middleName = father.name.personalName + "ович";
+        }
+        return son.name + " ";
+    }
 }
