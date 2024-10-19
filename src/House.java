@@ -1,12 +1,19 @@
 public class House {
-    public int numberOfFloors;
-    public House (int numberOfFloors){
-        this.numberOfFloors = numberOfFloors;
+    private int floors;
+    public House (int floors){
+        setFloors(floors);
+    }
+    public void setFloors(int floors){
+        if(floors <= 0) throw new IllegalArgumentException(" number of floors must be positive");
+        this.floors = floors;
+    }
+    public int getFloors(){
+        return floors;
     }
     public  String toString(){
-        if (numberOfFloors == 1){
-            return "дом с " + numberOfFloors + " этажом";
+        if (floors == 1){
+            return "дом с " + floors + " этажом";
         }
-        return "дом с " + numberOfFloors + " этажами";
+        return "дом с " + floors + " этажами";
     }
 }
