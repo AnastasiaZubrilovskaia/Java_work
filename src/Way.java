@@ -11,6 +11,9 @@ public class Way {
     public int getPay(int pay){
         return pay;
     }
+    public void setPay(int pay){
+        this.pay = pay;
+    }
     public String toString(){
         return city.getName() + " : " + pay + " руб";
     }

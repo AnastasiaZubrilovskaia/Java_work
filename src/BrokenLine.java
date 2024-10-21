@@ -9,7 +9,7 @@ public class BrokenLine {
         this.points = points;
     }
     public BrokenLine(Point... points){
-        for (Point x: points) this.points.add(x);
+        this(Arrays.asList(points));
     }
 
     public void addNewPoints(Point... dots) {
@@ -21,7 +21,7 @@ public class BrokenLine {
     public double length(){
         double res = 0.0;
         for (int i = 0 ; i < points.size()-1; i++){
-            res = res + Math.sqrt(Math.pow(points.get(i+1).x - points.get(i).x, 2) + Math.pow(points.get(i+1).y - points.get(i).y, 2));
+            res = res + new Line(points.get(i).x, points.get(i).y, points.get(i+1).x,points.get(i+1).y).distance();
         }
         return res;
     }

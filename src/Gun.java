@@ -33,11 +33,11 @@ public class Gun {
         return bullet > 0;
     }
 
-    public String shoot(){
+    public void  shoot(){
         if (bullet > 0){
             bullet--;
-            return  "Бах!";
-        }else return "Клац!";
+            System.out.println("Бах!");
+        }else System.out.println("Клац!");
     }
 
 }

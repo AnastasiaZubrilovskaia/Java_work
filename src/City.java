@@ -33,7 +33,10 @@ public class City {
     }
 
     public void addWays (Way... roads){
-        ways.addAll(Arrays.asList(roads));
+        for (Way w : roads){
+            if (!this.ways.contains(w))
+                addWay(w);
+        };
     }
 
     public List<Way> getWays() {

@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Department {
     private String name;
-    Worker boss;
+    private Worker boss;
     private List<Worker> workers;
 
     public Department(String name, List<Worker> workers) {
@@ -11,7 +11,7 @@ public class Department {
         setWorkers(workers);
     }
     public Department(String name){
-        this(name, null);
+        setName(name);
     }
 
     public String getName() {
@@ -20,6 +20,13 @@ public class Department {
 
     public List<Worker> getWorkers() {
         return new ArrayList<>(workers);
+    }
+    public Worker getBoss(){
+        return boss;
+    }
+    public void setBoss(Worker worker){
+        if (!workers.contains(worker)) throw new IllegalArgumentException("Person isn't worker of Detachment");
+        this.boss = worker;
     }
 
     public void setName(String name) {
@@ -30,20 +37,25 @@ public class Department {
         this.workers = new ArrayList<>(workers);
     }
 
-    public void addEmployee(Worker worker){
+    public void removeWorker(Worker worker){
         if (worker == null) return;
-        if (worker.getDepartment() != this) return;
-        worker.setDepartment(this);
-        this.workers.add(worker);
+        if (!workers.contains(worker)) return;
+        if (boss == worker) boss = null;
+        worker.setDepartment(null);
+        workers.remove(worker);
+
+    }
+    public void addWorker(Worker worker){
+        if (worker == null) return;
+        if (workers.contains(worker) && worker.getDepartment() == this) return;
+        if (worker.getDepartment() != this) {
+            worker.setDepartment(this);
+        }
+        if (!workers.contains(worker)) {
+            workers.add(worker);
+        }
     }
 
-    public void removeEmployee(Worker worker){
-        if (worker == null) return;
-        if (!workers.contains(worker)) return;;
-        if (boss == worker) boss = null;
-        workers.remove(worker);
-        worker.setDepartment(null);
-    }
 
     public String toString(){
         String res = "department " + name + " with workers " + workers;

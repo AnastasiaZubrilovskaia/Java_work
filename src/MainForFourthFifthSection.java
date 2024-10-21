@@ -76,11 +76,11 @@ public class MainForFourthFifthSection {
         //1.5.1
         System.out.println("1.5.1:");
         Gun gun1 = new Gun(3);
-        System.out.println(gun1.shoot());
-        System.out.println(gun1.shoot());
-        System.out.println(gun1.shoot());
-        System.out.println(gun1.shoot());
-        System.out.println(gun1.shoot());
+        gun1.shoot();
+        gun1.shoot();
+        gun1.shoot();
+        gun1.shoot();
+        gun1.shoot();
         //1.5.2
         System.out.println("1.5.2:");
         Cat cat = new Cat("Барсик");

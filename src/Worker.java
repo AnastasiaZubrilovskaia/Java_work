@@ -16,15 +16,14 @@ public class Worker {
     }
 
     public void setDepartment(Department department) {
-        if (department == this.department) return;
-        if (this.department != null) {
-            this.department.removeEmployee(this);
-            if (this.department.boss == this)
-                this.department.boss = null;
+        if (this.department == department) return;
+        if (this.department != null){
+            this.department.removeWorker(this);
         }
         this.department = department;
-        if (department != null)
-            this.department.addEmployee(this);
+        if (department != null){
+            this.department.addWorker(this);
+        }
     }
 
     public String getName() {
@@ -39,7 +38,7 @@ public class Worker {
         if (department == null){
             return name + " has no work :(";
         }
-        else if (department.boss == this){
+        else if (department.getBoss() == this){
             return name + " is boss of " + department.getName();
         }
         return name + " works in " + department;
